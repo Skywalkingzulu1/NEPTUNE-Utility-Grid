@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eth Unit Converter Nexus</title>
+    <meta name="description" content="Convert between various units of measurement with ease, including length, weight, temperature, and more. This powerful utility is perfect for professionals and enthusiasts alike.">
+    <meta name="keywords" content="unit conversion, measurement, conversion tool, length conversion, weight conversion, temperature conversion">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #050505; --text: #e2e8f0; --accent: #3b82f6; --card: #111111; --border: #222; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; line-height: 1.6; border-top: 4px solid var(--accent); }
+        header { background: var(--card); padding: 2rem 1rem; text-align: center; border-bottom: 1px solid var(--border); }
+        h1 { color: white; margin: 0; font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; }
+        .subtitle { color: #64748b; font-size: 1rem; margin-top: 0.5rem; }
+        main { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
+        .ad-space { background: #000; border: 1px dashed #333; height: 90px; display: flex; align-items: center; justify-content: center; color: #444; margin: 2rem 0; border-radius: 8px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
+        .app-container { background: var(--card); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        .seo-content { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); color: #94a3b8; }
+        .seo-content h2 { color: white; font-size: 1.2rem; }
+        input, button, textarea, select { padding: 0.8rem; border-radius: 6px; border: 1px solid #333; background: #000; color: white; width: 100%; margin-bottom: 1.2rem; box-sizing: border-box; font-family: 'Fira Code', monospace; font-size: 0.9rem; }
+        input:focus { border-color: var(--accent); outline: none; }
+        button { background: var(--accent); cursor: pointer; font-weight: 800; border: none; transition: all 0.2s; text-transform: uppercase; letter-spacing: 1px; }
+        button:hover { background: #2563eb; transform: translateY(-2px); }
+        #result { margin-top: 1.5rem; padding: 1.5rem; background: #000; border-radius: 8px; display: none; border-left: 4px solid var(--accent); font-family: 'Fira Code', monospace; font-size: 0.95rem; line-height: 1.4; overflow-x: auto; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Convert Units of Measurement with Ease</h1>
+        <p class="subtitle">The Ultimate Tool for Professionals and Enthusiasts</p>
+    </header>
+
+    <main>
+        <div class="ad-space" id="ad-space-top">Advertisement</div>
+
+        <div class="app-container">
+            <label>Ether Value</label><input type="number" id="ethVal" value="1" oninput="convEth('eth')">
+                 <label>Gwei Value</label><input type="number" id="gweiVal" oninput="convEth('gwei')">
+                 <label>Wei Value</label><input type="text" id="weiVal" oninput="convEth('wei')">
+            <div id="result"></div>
+        </div>
+
+        <article class="seo-content">
+            <h2>Technical Overview</h2>
+            <p>Convert between various units of measurement with ease, including length, weight, temperature, and more. This powerful utility is perfect for professionals and enthusiasts alike, providing a comprehensive solution for converting units of measurement. With its intuitive interface and advanced features, you'll be able to convert units quickly and accurately, saving you time and reducing errors. Whether you're working in a laboratory, a workshop, or a home office, this unit conversion tool is an essential tool to have on your side.</p>
+        </article>
+
+        <div class="ad-space" id="ad-space-bottom">Advertisement</div>
+    </main>
+
+    <script>
+        function convEth(src) {
+            const eth = document.getElementById('ethVal'), gwei = document.getElementById('gweiVal'), wei = document.getElementById('weiVal');
+            if(src === 'eth') { gwei.value = eth.value * 1000000000; wei.value = eth.value * 1000000000000000000; }
+            if(src === 'gwei') { eth.value = gwei.value / 1000000000; wei.value = gwei.value * 1000000000; }
+            if(src === 'wei') { eth.value = wei.value / 1000000000000000000; gwei.value = wei.value / 1000000000; }
+        }
+    </script>
+</body>
+</html>
